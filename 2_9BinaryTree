@@ -1,5 +1,12 @@
 /*
 例2.9 假设二叉树采用二叉链存储结构，设计一个递归算法输出从根结点到值为x的结点的路径，假设二叉树中所有节点值不同，且均为单个字符，
 编写一个完整的程序用相关数据进行测试。
-解：这里采用求x结点的所有祖先（另加上x结点本身）的方法
+解：这里采用求x结点的所有祖先（另加上x结点本身）的方法，用path[0..d]保存x结点及其祖先结点。设f(b,x,path,d)的功能是：若b为空树，
+返回false;若b所指结点为x结点，将x结点值加入path，返回true;若b所指结点的左或右孩子是x结点或其祖先，将x结点值加入path，返回true。
+判断b所指结点的左孩子是x结点或其视先表示为f(b->lchile,x,path,d),判断b所指结点时x结点或祖先表示为f(b->rchild,x,path,d)。堆应的递
+归模型如下：
+f(b,x,path,d) = false    当b =NULL
+f(b,x,path,d) = true(并将x加入到path中)   当b->data = x
+f(b,x,path,d) = true(并将b->data加入到path中) 当f(b->lchild,x,path,d)或f(b->rchild,x,path,d)为true
+对应程序如下：
 */
