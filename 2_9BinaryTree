@@ -116,3 +116,14 @@ void main()
     DestroyBTNode(b);
 
 }
+/*
+显示结果：
+二叉树b：A(B(D(G),),C(E,F))
+在b中找到值为G的结点
+从根结点到G的路径：ABDG
+销毁树b
+
+Process returned 0 (0x0)   execution time : 0.222 s
+Press any key to continue.
+
+*/
