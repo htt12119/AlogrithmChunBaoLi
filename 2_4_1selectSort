@@ -1,0 +1,41 @@
+/*用递归实现简单选择排序
+*/
+#include <stdio.h>
+
+void disp(int a[],int n)
+{
+    int i;
+    for(i = 0;i < n;i++)
+        printf("%d",a[i]);
+        printf("\n");
+}
+void SelectSort(int a[],int n,int i)
+{
+    int j,k,tmp;
+    if(i == n - 1) return;
+    else
+    {
+        k = i;
+        for(j = i + 1;j < n;j++)
+            if(a[j] < a[k])
+                k = j;
+            if(k != i)
+            {
+                tmp = a[i];
+                a[i] = a[k];
+                a[k] = tmp;
+            }
+            SelectSort(a,n,i + 1);
+    }
+}
+int main()
+{
+    int n = 10;
+    int a[] = {2,5,1,7,10,6,9,4,3,8};
+    printf("排序前：");
+    disp(a,n);
+    SelectSort(a,n,0);
+    printf("排序后：");
+    disp(a,n);
+    return 0;
+}
